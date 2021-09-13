@@ -5,11 +5,11 @@
   import Login from "./pages/Login.svelte";
   import Products from "./pages/Products.svelte";
   import ProductTemplate from "./pages/ProductTemplate.svelte";
-  import { Router, Route, Switch, Link } from "react-router";
+  import { Router, Route, Link } from "svelte-routing";
 </script>
 
 <Router>
-  <nav>
+  <nav class="navbar">
     <Link to="/">Home</Link>
     <Link to="/about">About</Link>
     <Link to="/products">Products</Link>
@@ -20,25 +20,3 @@
   <Route path="/products" component={Products} />
   <Route path="/products/:id" component={ProductTemplate} />
 </Router>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
