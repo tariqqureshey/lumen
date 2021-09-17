@@ -2,10 +2,14 @@
   import { onMount, onDestroy } from "svelte";
   import products from "../../stores/defaultProducts";
   let localProducts = [];
+  let unsubscribe;
   onMount(() => {
-    products.subscribe((value) => {
+    unsubscribe = products.subscribe((value) => {
       localProducts = value;
     });
+  });
+  onDestroy(() => {
+    unsubscribe();
   });
 </script>
 
